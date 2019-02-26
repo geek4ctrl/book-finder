@@ -50,8 +50,36 @@ body{
   border: 1px solid #5c8d89;
 }
 
-h1{
-  color: #5c8d89;
+.animation h1{
+  overflow: hidden;
+  border-right: .15em solid #5c8d89;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+
+  transition: color 0.5s ease;
+  background-color: #a7d7c5;
+
+  margin-bottom: 40px;
+  color: gray;
+
+  animation:
+    writing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes writing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret{
+  from, to{ border-color: transparent }
+  50% { border-color: #a7d7c5; }
+}
+
+h1:hover{
+  color: white;
 }
 
 .search-button{

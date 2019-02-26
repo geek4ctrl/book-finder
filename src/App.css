@@ -31,3 +31,41 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-color: #f4f9f4;
+}
+
+.search-book{
+  margin: 0 auto;
+  border-radius: 5px;
+  width: 50%;
+  height: 40px;
+
+  transition: border 0.5s ease;
+  border: 1px solid #a7d7c5;
+}
+
+.search-book:hover{
+  border: 1px solid #5c8d89;
+}
+
+h1{
+  color: #5c8d89;
+}
+
+.search-button{
+  width: 80px;
+  height: 40px;
+  border: none;
+  margin-left: 5px;
+  border-radius: 5px;
+
+  transition: background-color 0.5s ease;
+  background-color: #a7d7c5;
+}
+
+.search-button:hover{
+  background-color: #5c8d89;
+  color: white;
+}

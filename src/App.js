@@ -7,18 +7,37 @@ class App extends Component {
   constructor(props)
   {
     super(props);
-    
+
     this.state = {
-      author: "",
-      title: "",
-      publishingCompany: "",
-      picture: ""
+      items: []
     }
   }
 
-
+  componentDidMount(){
+    fetch("https://www.googleapis.com/books/v1/volumes?q=robert kiyosaki&key=AIzaSyAcSMLOh0LMkos8jk-64mDRfcNOCLuj8fk")
+      .then(res => res.json())
+      .then(
+        (result) => {
+              for (let i = 0; i < 10; i++)
+              {
+                this.state.items.push({
+                  title: result.items[i].volumeInfo.title,
+                  authors: result.items[i].volumeInfo.authors,
+                  publisher: result.items[i].volumeInfo.publisher
+                })
+              }
+        },
+        (error) => {
+              //console.log(error);
+        }
+      )
+  }
 
   render() {
+
+    //console.log("Testing");
+    //console.log(this.state.items[0].volumeInfo);
+
     return (
       <div className="App">
             <div  className="animation">
@@ -31,6 +50,7 @@ class App extends Component {
            {/* Creating the book element*/}
 
           <div> {/* This will be used to separate cards in twos */}
+
               <div className="card">
                   <div className="book-image">Image</div>
                   <div className="book-description">
@@ -41,6 +61,8 @@ class App extends Component {
                       <div className="see-more-button"><button className="see-more">See this book</button></div>
                   </div>
               </div>
+
+
           </div>
       </div>
     );

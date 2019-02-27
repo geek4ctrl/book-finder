@@ -43,13 +43,14 @@ class App extends Component {
        const { isLoaded, items } = this.state;
       //console.log(items);
     return (
-      <div className="App">
-            <div  className="animation">
-                    <h1>BOOK FINDER</h1>
-            </div>
-              <input className="search-book" type="search" placeholder="Type your book here"/>
-              <input className="search-button" type="button" value="SEARCH"/>
-
+      <div>
+          <div className="App">
+                <div  className="animation">
+                        <h1>BOOK FINDER</h1>
+                </div>
+                  <input className="search-book" type="search" placeholder="Type your book here"/>
+                  <input className="search-button" type="button" value="SEARCH"/>
+          </div>
             <div>
               {items.map(item => {
                    return (
@@ -58,14 +59,12 @@ class App extends Component {
 
                         <div className="book-description"> 
                           <div className="book-title">{ item.volumeInfo.title } </div>
-                          <div className="book-title">{ item.volumeInfo.title } </div>
                           <div className="book-author">{ item.volumeInfo.authors } </div>
                           <div className="book-publisher">{ item.volumeInfo.publisher } </div>
                         </div>
                    </div>)
               } )}
             </div>
-
       </div>
     );
   }

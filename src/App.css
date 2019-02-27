@@ -99,18 +99,18 @@ h1:hover{
 }
 
 .card{
-  width: auto;
-  height: 250px;
-  background-color: white;
-  margin: 0 auto;
-  margin-top: 100px;
-  margin-left: 20%;
-  margin-right: 20%;
-  
   display: flex;
+  width: 40%;
+  height: 250px;
+  background-color: white;  
+  margin-top: 100px;
+  margin-left: 6%;
+  
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
+  float: left;
 }
 
 .book-image{

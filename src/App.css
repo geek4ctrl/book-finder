@@ -111,8 +111,6 @@ h1:hover{
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
-  position: absolute;
 }
 
 .book-image{

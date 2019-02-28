@@ -30,7 +30,7 @@ class App extends Component {
               items: json.items,
               isLoaded: true
             })
-            console.log(json.items);
+            //console.log(json.items);
         },
         (error) => {
               //console.log(error);
@@ -51,8 +51,23 @@ class App extends Component {
                   <input className="search-book" type="search" placeholder="Type your book here"/>
                   <input className="search-button" type="button" value="SEARCH"/>
           </div>
-            <div>
+          
+          <div>
               {items.map(item => {
+
+                let image = "";
+                let dataClean = false;
+                //console.log(item.volumeInfo.imageLinks.thumbnail);
+                if (item.volumeInfo.imageLinks == undefined)    // Do something if it is undefined
+                {
+                  console.log("Hola");
+                }
+                else{
+                  console.log(item.volumeInfo.imageLinks.thumbnail);
+                  image = item.volumeInfo.imageLinks.thumbnail;
+                  dataClean = true;         // If data is clean, display the image  //* Next -->
+                }
+
                    return (
                    <div className="card">
                         <div className="book-image"><img src=""/> </div>
@@ -66,7 +81,7 @@ class App extends Component {
                         </div>
                    </div>)
               } )}
-            </div>
+          </div>
       </div>
     );
   }

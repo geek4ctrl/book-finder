@@ -58,9 +58,11 @@ class App extends Component {
                         <div className="book-image"><img src=""/> </div>
 
                         <div className="book-description"> 
-                          <div className="book-title">{ item.volumeInfo.title } </div>
+                          <div className="book-title"><h4>{ item.volumeInfo.title }</h4></div>
                           <div className="book-author">{ item.volumeInfo.authors } </div>
                           <div className="book-publisher">{ item.volumeInfo.publisher } </div>
+
+                          <div className="see-more-button"><button className="see-more">See this book</button></div>
                         </div>
                    </div>)
               } )}

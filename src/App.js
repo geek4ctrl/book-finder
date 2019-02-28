@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -40,7 +39,7 @@ class App extends Component {
 
   render() {
     //console.log(this.state.items);
-       const { isLoaded, items } = this.state;
+       const { items } = this.state;
       //console.log(items);
     return (
       <div>
@@ -56,22 +55,20 @@ class App extends Component {
               {items.map(item => {
 
                 let image = "";
-                let dataClean = false;
                 //console.log(item.volumeInfo.imageLinks.thumbnail);
-                if (item.volumeInfo.imageLinks == undefined)    // Do something if it is undefined
+                if (item.volumeInfo.imageLinks === undefined)    // Do something if it is undefined
                 {
                   console.log("Hola");
                 }
                 else{
                   console.log(item.volumeInfo.imageLinks.thumbnail);
                   image = item.volumeInfo.imageLinks.thumbnail;
-                  dataClean = true;         // If data is clean, display the image  //* Next -->
                 }
 
                    return (
                    <div className="card">
-                        <div className="book-image"><img src=""/> </div>
-
+                      <div className="book-image"><img alt="" src={image}/> </div>
+                       
                         <div className="book-description"> 
                           <div className="book-title"><h4>{ item.volumeInfo.title }</h4></div>
                           <div className="book-author">{ item.volumeInfo.authors } </div>
@@ -79,6 +76,7 @@ class App extends Component {
 
                           <div className="see-more-button"><button className="see-more">See this book</button></div>
                         </div>
+
                    </div>)
               } )}
           </div>

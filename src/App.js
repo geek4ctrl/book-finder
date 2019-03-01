@@ -22,29 +22,44 @@ class App extends Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState){
-    const search = prevState.change;
-    console.log(prevState.change);
+  componentDidMount(){
+    this.ItemList({});
+  }
 
-    fetch("https://www.googleapis.com/books/v1/volumes?q="+search+"&key=AIzaSyAcSMLOh0LMkos8jk-64mDRfcNOCLuj8fk")
-      .then(res => {
-          if (res.ok)
-          {
-            return res.json();
-          } else {
-            throw Error(res.statusText);
-          }
-      })
-      .then(
-        (json) => {
-            this.setState({
-              items: json.items,
-              isLoaded: true
-            })
-        },
-        (error) => {
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Should I update?');
+     const differentItem = this.state.items !== nextState.items;
+     console.log(this.state.items);
+     console.log(nextState);
+     if (this.state !== nextState){
+      this.ItemList(nextState);
+     }
+    return true;
+  }
+
+  ItemList(items)
+  {
+    const search = items.change;
+    
+    fetch("https://www.googleapis.com/books/v1/volumes?q="+search+"")
+    .then(res => {
+        if (res.ok)
+        {
+          return res.json();
+        } else {
+          throw Error(res.statusText);
         }
-      )
+    })
+    .then(
+      (json) => {
+          this.setState({
+            items: json.items,
+            isLoaded: true
+          })
+      },
+      (error) => {
+      }
+    )
   }
 
   render() {
@@ -85,6 +100,7 @@ class App extends Component {
                    )
               } )}
           </div>
+
       </div>
     );
   }

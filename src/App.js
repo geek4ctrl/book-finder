@@ -14,52 +14,90 @@ class App extends Component {
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event){
+    event.preventDefault();
     this.setState({
       change: event.target.value
     });
+  }
+
+  handleClick(event){
+        event.preventDefault();
+
+        fetch("https://www.googleapis.com/books/v1/volumes?q="+this.state.change+"")
+        .then(res => {
+            if (res.ok)
+            {
+              return res.json();
+            } else {
+              throw Error(res.statusText);
+            }
+        })
+        .then(
+          (json) => {
+              this.setState({
+                items: json.items,
+                isLoaded: true
+              })
+          },
+          (error) => {
+          }
+        )
   }
 
   componentDidMount(){
     this.ItemList({});
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('Should I update?');
-     const differentItem = this.state.items !== nextState.items;
-     console.log(this.state.items);
-     console.log(nextState);
-     if (this.state !== nextState){
-      this.ItemList(nextState);
-     }
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+    
+  //   console.log('Should I update?');
+  //    const differentItem = this.state.items !== nextState.items;
+  //    console.log(this.state.items);
+  //    console.log(nextState);
+  //    if (this.state === nextState){
+  //     this.ItemList(nextState);
+  //    }
+  //   return true;
+  // }
 
   ItemList(items)
   {
-    const search = items.change;
-    
-    fetch("https://www.googleapis.com/books/v1/volumes?q="+search+"")
-    .then(res => {
-        if (res.ok)
-        {
-          return res.json();
-        } else {
-          throw Error(res.statusText);
-        }
-    })
-    .then(
-      (json) => {
-          this.setState({
-            items: json.items,
-            isLoaded: true
-          })
-      },
-      (error) => {
-      }
-    )
+    // console.log("Vitamin");
+    // console.log(items);
+
+    // if (Object.getOwnPropertyNames(items).length === 0)
+    // {
+    //     console.log("Vitaminaaa");
+    // }
+    // else
+    // {
+    // const search = items.change;
+
+    //       fetch("https://www.googleapis.com/books/v1/volumes?q="+search+"")
+    //       .then(res => {
+    //           if (res.ok)
+    //           {
+    //             return res.json();
+    //           } else {
+    //             throw Error(res.statusText);
+    //           }
+    //       })
+    //       .then(
+    //         (json) => {
+    //             this.setState({
+    //               items: json.items,
+    //               isLoaded: true
+    //             })
+    //         },
+    //         (error) => {
+    //         }
+    //       )
+
+    // }
   }
 
   render() {
@@ -70,8 +108,8 @@ class App extends Component {
                 <div  className="animation">
                         <h1>BOOK FINDER</h1>
                 </div>
-                  <input id="bookSearch" className="search-book" type="search" placeholder="Type your book here" onChange={this.handleChange}/>
-                  <input className="search-button" type="button" value="SEARCH"/>
+                  <input id="bookSearch" className="search-book" type="search" onChange={this.handleChange} placeholder="Type your book here" />
+                  <input className="search-button" type="button" value="SEARCH" onClick={this.handleClick}/>
           </div>
           
           <div>

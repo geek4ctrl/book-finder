@@ -107,6 +107,19 @@ h1:hover{
   width: 40%;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: red;
+}
+
 .card{
   display: flex;
   width: 40%;
@@ -130,7 +143,9 @@ h1:hover{
   flex: 1;
   width: 100%;
   height: inherit;
-  background-color: #a7d7c5;
+  background: url('https://res.cloudinary.com/dhqvb8wbn/image/upload/v1551406223/no_book_cover_xzb0iq.png');
+  background-repeat: repeat-y;
+  background-size: 100%;
   margin-bottom: 70px;
   margin-left: 30px;
   margin-right: 30px;

@@ -9,12 +9,24 @@ class App extends Component {
 
     this.state = {
       items: [],
-      isLoaded: false
+      isLoaded: false,
+      change: ""
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount(){
-    fetch("https://www.googleapis.com/books/v1/volumes?q=robert kiyosaki&key=AIzaSyAcSMLOh0LMkos8jk-64mDRfcNOCLuj8fk")
+  handleChange(event){
+    this.setState({
+      change: event.target.value
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    const search = prevState.change;
+    console.log(prevState.change);
+
+    fetch("https://www.googleapis.com/books/v1/volumes?q="+search+"&key=AIzaSyAcSMLOh0LMkos8jk-64mDRfcNOCLuj8fk")
       .then(res => {
           if (res.ok)
           {
@@ -29,39 +41,32 @@ class App extends Component {
               items: json.items,
               isLoaded: true
             })
-            //console.log(json.items);
         },
         (error) => {
-              //console.log(error);
         }
       )
   }
 
   render() {
-    //console.log(this.state.items);
-       const { items } = this.state;
-      //console.log(items);
+
     return (
       <div>
           <div className="App">
                 <div  className="animation">
                         <h1>BOOK FINDER</h1>
                 </div>
-                  <input className="search-book" type="search" placeholder="Type your book here"/>
+                  <input id="bookSearch" className="search-book" type="search" placeholder="Type your book here" onChange={this.handleChange}/>
                   <input className="search-button" type="button" value="SEARCH"/>
           </div>
           
           <div>
-              {items.map(item => {
+              {this.state.items.map((item, key) => {
 
                 let image = "";
-                //console.log(item.volumeInfo.imageLinks.thumbnail);
-                if (item.volumeInfo.imageLinks === undefined)    // Do something if it is undefined
+                if (item.volumeInfo.imageLinks === undefined)  
                 {
-                  console.log("Hola");
                 }
                 else{
-                  console.log(item.volumeInfo.imageLinks.thumbnail);
                   image = item.volumeInfo.imageLinks.thumbnail;
                 }
 
@@ -76,8 +81,8 @@ class App extends Component {
 
                           <div className="see-more-button"><button className="see-more">See this book</button></div>
                         </div>
-
-                   </div>)
+                   </div>
+                   )
               } )}
           </div>
       </div>

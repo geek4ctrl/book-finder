@@ -37,6 +37,16 @@ select:focus,
 textarea:focus{
   outline: none;
   color: #FF6200;
+  
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";       /* IE 8 */
+  filter: alpha(opacity=85);  /* IE 5-7 */
+  -moz-opacity: 0.85;          /* Netscape */
+  -khtml-opacity: 0.85;        /* Safari 1.x */
+  opacity: 0.85; 
+}
+
+#bookSearch{
+  background-color: #C4C3C1;
 }
 
 .search-book{
@@ -141,7 +151,7 @@ a{
   display: flex;
   width: 40%;
   height: 250px;
-  background-color: white;  
+  background-color: #C6C6C4;  
   margin-top: 100px;
   margin-left: 6%;
   flex-direction: row;
@@ -154,6 +164,12 @@ a{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 40%;
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";       /* IE 8 */
+  filter: alpha(opacity=85);  /* IE 5-7 */
+  -moz-opacity: 0.85;          /* Netscape */
+  -khtml-opacity: 0.85;        /* Safari 1.x */
+  opacity: 0.85;  
 }
 
 .book-image{
@@ -224,7 +240,7 @@ h2{
     display: flex;
     width: 90%;
     height: 250px;
-    background-color: white;  
+    background-color: #C6C6C4;  
     margin-top: 100px;
     margin-left: 6%;
     flex-direction: row;

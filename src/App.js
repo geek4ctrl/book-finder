@@ -24,10 +24,6 @@ class App extends Component {
     });
   }
 
-  redirect(){
-
-  }
-
   handleClick(event){
         event.preventDefault();
 
@@ -109,7 +105,7 @@ class App extends Component {
       </div>
     );
 
-    
+
 
   }
 }

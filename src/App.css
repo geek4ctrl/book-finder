@@ -32,14 +32,6 @@
   }
 }
 
-body{
-  /* background-color: white;
-  background-image: url('https://res.cloudinary.com/dhqvb8wbn/image/upload/v1551547673/photo-1519682337058-a94d519337bc_o1ocfn.jpg');
-  background-size: cover;
-  background-repeat: no-repeat; */
-}
-
-
 input:focus,
 select:focus,
 textarea:focus{
@@ -261,6 +253,5 @@ h2{
     margin-top: 20px;
     font-size: 16px;
   }
-
 
 }

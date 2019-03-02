@@ -33,7 +33,18 @@
 }
 
 body{
-  background-color: white;
+  /* background-color: white;
+  background-image: url('https://res.cloudinary.com/dhqvb8wbn/image/upload/v1551547673/photo-1519682337058-a94d519337bc_o1ocfn.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; */
+}
+
+html { 
+  background: url(https://res.cloudinary.com/dhqvb8wbn/image/upload/v1551547673/photo-1519682337058-a94d519337bc_o1ocfn.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 input:focus,
@@ -257,4 +268,6 @@ h2{
     margin-top: 20px;
     font-size: 16px;
   }
+
+
 }

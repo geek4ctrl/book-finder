@@ -91,6 +91,15 @@ h1:hover{
   color: white;
 }
 
+a{
+  color: white;
+  text-decoration: none;
+
+  outline: 0;
+  border: none;
+  -moz-outline-style: none;
+}
+
 .search-button{
   width: 80px;
   height: 40px;

@@ -24,6 +24,10 @@ class App extends Component {
     });
   }
 
+  redirect(){
+
+  }
+
   handleClick(event){
         event.preventDefault();
 
@@ -57,12 +61,16 @@ class App extends Component {
             {this.state.items.map((item, key) => {
 
               let image = "";
+              let redirectLink = "";
+
               if (item.volumeInfo.imageLinks === undefined)  
               {
               }
               else{
                 image = item.volumeInfo.imageLinks.thumbnail;
               }
+
+              console.log(item.volumeInfo);
 
                 return (
                 <div className="card">
@@ -73,7 +81,7 @@ class App extends Component {
                         <div className="book-author">{ item.volumeInfo.authors } </div>
                         <div className="book-publisher">{ item.volumeInfo.publisher } </div>
 
-                        <div className="see-more-button"><button className="see-more">See this book</button></div>
+                        <div className="see-more-button"><button className="see-more"><a href={item.volumeInfo.canonicalVolumeLink} target="_blank">See this book</a></button></div>
                       </div>
                 </div>
                 )

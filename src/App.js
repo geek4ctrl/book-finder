@@ -46,6 +46,7 @@ class App extends Component {
           (error) => {
           }
         )
+        
   }
 
   render() {
@@ -65,8 +66,6 @@ class App extends Component {
               else{
                 image = item.volumeInfo.imageLinks.thumbnail;
               }
-
-              console.log(item.volumeInfo);
 
                 return (
                 <div className="card">

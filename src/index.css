@@ -13,16 +13,16 @@ code {
     monospace;
 }
 
+
+html, body { 
+  background: url(https://res.cloudinary.com/dhqvb8wbn/image/upload/v1551547673/photo-1519682337058-a94d519337bc_o1ocfn.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 footer{
-  /* position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center; */
-  /* align-items: center;
-  text-align: center; */
   position: relative;
   text-align: center;
   margin-top: 60vh;

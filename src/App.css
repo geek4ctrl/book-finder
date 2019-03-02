@@ -38,8 +38,7 @@ body{
 
 input:focus,
 select:focus,
-textarea:focus,
-button:focus{
+textarea:focus{
   outline: none;
   color: #FF6200;
 }
@@ -52,6 +51,7 @@ button:focus{
   font-size: 16px;
   transition: border 0.5s ease;
   border: 1px solid #FF6200;
+  caret-color: black;
 }
 
 .search-book:hover{
@@ -100,12 +100,12 @@ h1:hover{
 
   transition: background-color 0.5s ease;
   background-color: #FF6200;
-  color: white;
   font-size: 16px;
 
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 35%;
+  color: white;
 }
 
 .search-button:hover{

@@ -93,7 +93,7 @@ class App extends Component {
                         <h1>BOOK FINDER</h1>
                 </div>
                   <input id="bookSearch" className="search-book" type="search" onChange={this.handleChange} placeholder="Type your book here" autocomplete="off"/>
-                  <input className="search-button" type="button" value="SEARCH" onClick={this.handleClick}/>
+                  <input className="search-button"  type="button" value="SEARCH" onClick={this.handleClick}/>
           </div>
           
           { userMessage }
